@@ -1,0 +1,61 @@
+# FIKTIVE Events an echten Veranstaltungsorten (Koordinaten ca.). Besucherzahlen = Annahmen.
+- id: e1
+  name: Heimspiel Fußball (fiktiv)
+  venue: Max-Morlock-Stadion
+  lon: 11.1255
+  lat: 49.4263
+  datum: '2026-10-17'
+  beginn: '15:30'
+  ende: '17:20'
+  besucher: 45000
+  kategorie: Sport
+- id: e2
+  name: Konzert Arena (fiktiv)
+  venue: Arena Nürnberg
+  lon: 11.1182
+  lat: 49.4236
+  datum: '2026-10-15'
+  beginn: '20:00'
+  ende: '22:30'
+  besucher: 7500
+  kategorie: Konzert
+- id: e3
+  name: Messe-Publikumstag (fiktiv)
+  venue: Messe Nürnberg
+  lon: 11.1168
+  lat: 49.4141
+  datum: '2026-10-14'
+  beginn: 09:00
+  ende: '18:00'
+  besucher: 30000
+  kategorie: Messe
+- id: e4
+  name: Herbstvolksfest (fiktiv)
+  venue: Volksfestplatz
+  lon: 11.115
+  lat: 49.4325
+  datum: '2026-10-16'
+  beginn: '17:00'
+  ende: '23:00'
+  besucher: 25000
+  kategorie: Volksfest
+- id: e5
+  name: Open-Air Zeppelinfeld (fiktiv)
+  venue: Zeppelinfeld
+  lon: 11.1228
+  lat: 49.4337
+  datum: '2026-10-24'
+  beginn: '18:00'
+  ende: '23:00'
+  besucher: 40000
+  kategorie: Konzert
+- id: e6
+  name: Christkindlesmarkt-Eröffnung (fiktiv)
+  venue: Hauptmarkt
+  lon: 11.0775
+  lat: 49.454
+  datum: '2026-11-27'
+  beginn: '17:30'
+  ende: '22:00'
+  besucher: 20000
+  kategorie: Markt

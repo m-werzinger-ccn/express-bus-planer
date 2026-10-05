@@ -1,0 +1,51 @@
+# Planungsregeln – zentrale Annahmen (in der UI als Annahmen kennzeichnen)
+# D = aus Quelle, S = Annahme/Schätzung
+
+gebiet:
+  # Untersuchungsraum: Nürnberg + Puffer (lon_min, lat_min, lon_max, lat_max)
+  bbox: [10.95, 49.34, 11.24, 49.55]
+
+stichtag: "20261013"          # Di 13.10.2026, normaler Werktag (GTFS gültig 24.06.–12.12.2026)
+
+zeitfenster:                 # Stunden [von, bis)
+  HVZ_frueh: [6, 9]
+  NVZ: [9, 15]
+  HVZ_spaet: [15, 18]
+  SVZ: [18, 21]
+
+mindesttakt_min:             # Nahverkehrsplan Nürnberg 2025 (vereinfacht, D/S)
+  dicht:  {HVZ_frueh: 15, NVZ: 15, HVZ_spaet: 15, SVZ: 30}
+  locker: {HVZ_frueh: 30, NVZ: 30, HVZ_spaet: 30, SVZ: 60}
+  dicht_ab_einwohner_400m: 2500   # Ø Einwohner im 400-m-Umkreis der Halte einer Linie (S)
+
+fusswege:
+  umwegfaktor: 1.3            # Luftlinie → Fußweg (S), später OSMnx/r5py
+  gehgeschwindigkeit_kmh: 4.8
+  max_bus_m: 400
+  max_schiene_m: 800          # weiter weg = "schlecht an die Schiene angebunden"
+
+bus:
+  geschwindigkeit_heute_kmh: 18     # Stadtbus inkl. Halte (S)
+  express_faktor_kfz: 0.8           # Express fährt mit 80 % der Kfz-Geschwindigkeit (S)
+  haltezeit_express_min: 1.0
+  wendezeit_min: 6
+  plaetze: {Solo: 70, Gelenk: 100}  # inkl. Stehplätze (S)
+
+dienst:
+  schicht_h_effektiv: 7.0     # Lenkzeit je Fahrerschicht nach Pausen (ArbZG/FPersV, vereinfacht)
+
+express:
+  einzugsradius_m: 500
+  betriebszeiten:              # Auswahl in der UI
+    HVZ: [[6, 9], [15, 18]]
+    Tag: [[6, 20]]
+
+events:
+  oev_anteil: 0.55             # Anteil Besucher:innen mit ÖPNV (S)
+  shuttle_anteil: 0.15         # davon per Event-Express (S)
+  anreise_vorlauf_min: 120
+  abreise_dauer_min: 70
+
+wochentag_faktor:            # Bedarf (Fahrplanumfang) und verfügbare Dienste je Wochentag (S)
+  bedarf:     {werktag: 1.0, samstag: 0.72, sonntag: 0.52}
+  verfuegbar: {werktag: 1.0, samstag: 0.80, sonntag: 0.60}

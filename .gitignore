@@ -1,0 +1,15 @@
+# Rohdaten (groß, per pipeline/run_all.sh ladbar)
+data/raw/
+data/scenarios.json
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+# Frontend
+frontend/node_modules/
+frontend/dist/
+.DS_Store
+
+# Übergabe-Archiv
+*.zip
