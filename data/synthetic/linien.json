@@ -1,0 +1,242 @@
+[
+  {
+    "linie": "21",
+    "einw_400m_mittel": 948.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "30",
+    "einw_400m_mittel": 995.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "31",
+    "einw_400m_mittel": 956.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "32",
+    "einw_400m_mittel": 655.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "34",
+    "einw_400m_mittel": 6561.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "35",
+    "einw_400m_mittel": 3806.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "36",
+    "einw_400m_mittel": 4468.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "37",
+    "einw_400m_mittel": 3611.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "38",
+    "einw_400m_mittel": 2042.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "40",
+    "einw_400m_mittel": 1710.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "43",
+    "einw_400m_mittel": 4486.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "44",
+    "einw_400m_mittel": 2868.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "45",
+    "einw_400m_mittel": 3051.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "46",
+    "einw_400m_mittel": 3818.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "47",
+    "einw_400m_mittel": 4214.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "49",
+    "einw_400m_mittel": 1923.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "50",
+    "einw_400m_mittel": 646.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "51",
+    "einw_400m_mittel": 1934.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "52",
+    "einw_400m_mittel": 1174.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "53",
+    "einw_400m_mittel": 1043.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "54",
+    "einw_400m_mittel": 1188.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "55",
+    "einw_400m_mittel": 1290.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "56",
+    "einw_400m_mittel": 950.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "57",
+    "einw_400m_mittel": 1343.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "58",
+    "einw_400m_mittel": 2868.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "59",
+    "einw_400m_mittel": 1386.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "60",
+    "einw_400m_mittel": 1686.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "61",
+    "einw_400m_mittel": 1210.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "62",
+    "einw_400m_mittel": 1911.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "65",
+    "einw_400m_mittel": 3398.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "66",
+    "einw_400m_mittel": 1513.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "67",
+    "einw_400m_mittel": 2755.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "68",
+    "einw_400m_mittel": 2862.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "69",
+    "einw_400m_mittel": 2346.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "73",
+    "einw_400m_mittel": 1962.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "82",
+    "einw_400m_mittel": 1537.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "84",
+    "einw_400m_mittel": 4711.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "89",
+    "einw_400m_mittel": 1390.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "91",
+    "einw_400m_mittel": 1471.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "92",
+    "einw_400m_mittel": 1215.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "93",
+    "einw_400m_mittel": 1182.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "94",
+    "einw_400m_mittel": 3905.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "95",
+    "einw_400m_mittel": 3836.0,
+    "gebiet": "dicht"
+  },
+  {
+    "linie": "96",
+    "einw_400m_mittel": 1047.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "97",
+    "einw_400m_mittel": 1972.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "98",
+    "einw_400m_mittel": 1943.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "99",
+    "einw_400m_mittel": 508.0,
+    "gebiet": "locker"
+  },
+  {
+    "linie": "E8",
+    "einw_400m_mittel": 5077.0,
+    "gebiet": "dicht"
+  }
+]

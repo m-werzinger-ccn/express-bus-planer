@@ -1,0 +1,15 @@
+{
+  "seed": 42,
+  "stichtag": "20261013",
+  "fahrten": 4672,
+  "linien": 48,
+  "fahrstunden": 2478.5,
+  "fahrer_bedarf": 355,
+  "fahrer_bestand": 376,
+  "fahrer_verfuegbar": 352,
+  "busse_spitze": 257,
+  "busse_bestand": 278,
+  "busse_verfuegbar": 269,
+  "fahrgaeste_tag": 165620,
+  "hinweis": "synthetisch – keine VAG-Daten"
+}

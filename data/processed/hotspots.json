@@ -1,0 +1,44 @@
+[
+  {
+    "lon": 11.09531,
+    "lat": 49.44021,
+    "einwohner_weit_von_schiene": 15352,
+    "zeit_bis_schiene_min": 14.1,
+    "fussweg_schiene_m": 1204
+  },
+  {
+    "lon": 11.08087,
+    "lat": 49.41067,
+    "einwohner_weit_von_schiene": 5554,
+    "zeit_bis_schiene_min": 13.8,
+    "fussweg_schiene_m": 2146
+  },
+  {
+    "lon": 11.063,
+    "lat": 49.47559,
+    "einwohner_weit_von_schiene": 8091,
+    "zeit_bis_schiene_min": 13.9,
+    "fussweg_schiene_m": 1634
+  },
+  {
+    "lon": 11.07587,
+    "lat": 49.37114,
+    "einwohner_weit_von_schiene": 5381,
+    "zeit_bis_schiene_min": 20.5,
+    "fussweg_schiene_m": 3416
+  },
+  {
+    "lon": 11.06074,
+    "lat": 49.43514,
+    "einwohner_weit_von_schiene": 6741,
+    "zeit_bis_schiene_min": 12.3,
+    "fussweg_schiene_m": 982
+  },
+  {
+    "lon": 11.03377,
+    "lat": 49.39852,
+    "einwohner_weit_von_schiene": 5213,
+    "zeit_bis_schiene_min": 15.4,
+    "fussweg_schiene_m": 2058
+  }
+]
