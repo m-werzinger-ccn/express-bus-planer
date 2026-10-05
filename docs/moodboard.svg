@@ -1,0 +1,334 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1010" viewBox="0 0 1400 1010" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo0NzM0YWRkYS1hMzdhLTQwOGUtYWE1Yi0xMzI0MDczMzAwNDgAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaP1nBYtQp8z0W1Ag3JCuppoAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDoxOTEwZjE2NC0zNTA3LTRmMGMtODQ1MC02YWE5NWE3M2JhMDZscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNornb/KHalQmeDZSZ4H7II4QAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgglwL1jd41JsJrmuMDHYZxJJZlEKIV8ItGEUd6Bc1budmkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaHJ9ABFaLl59cEruS/mr0c0AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCAh8ZYXRUVMR6w4BTNKOYQ7WvqlrMITIVNTeql0E7/3C2RuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBjnZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjQ3MzRhZGRhLWEzN2EtNDA4ZS1hYTViLTEzMjQwNzMzMDA0OC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmQyNmI2ZmViLTYwZjEtNDIyMC1hMjFlLWViMWI1MjI4ZDQ5ZXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCCXAvWN3jUmwmua4wMdhnEklmUQohXwi0YRR3oFzVu52aJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggSotOjTLLceWzZnS2KOaOnJZd25/DO93eRpm0G4+a/DWiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggD1X0Wjv/1y5XFKyqXIZSh2mKZ2XJKEU4suvHUc4QauV0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQEq/sKaI1PR8j4c/iFq3qiX+VlTuTrqHycPuITn4qnSN755ngowt1p64dPDWLwTFuxGCHZZNt2leTYEPriGJJ20=</c2pa:manifest></metadata>
+  <defs>
+    <radialGradient id="heat" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FDE047" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#F97316" stop-opacity="0.7"/>
+      <stop offset="75%" stop-color="#DC2626" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#DC2626" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="heatSoft" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F97316" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#DC2626" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="heatbar" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="35%" stop-color="#DC2626"/>
+      <stop offset="70%" stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#FDE047"/>
+    </linearGradient>
+    <clipPath id="mapclip"><rect x="250" y="160" width="550" height="540"/></clipPath>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0F172A" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Paper background -->
+  <rect width="1400" height="1010" fill="#F4F1EA"/>
+
+  <!-- Title -->
+  <text x="40" y="58" font-size="30" font-weight="700" fill="#0F172A">ExpressNetz Nürnberg — Moodboard &amp; UI-Skizze</text>
+  <text x="40" y="88" font-size="15" fill="#475569">Track 1 · Fraunhofer IIS · Mehr Express-Busse ohne zusätzliche Fahrer · Arbeitsstand 05.10.2026 · alle Linien/Zahlen im Bild fiktiv</text>
+
+  <!-- ================= MAIN APP MOCK ================= -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="120" width="1000" height="620" rx="14" fill="#0F172A"/>
+  </g>
+
+  <!-- Top bar -->
+  <rect x="40" y="120" width="1000" height="40" rx="14" fill="#111C2E"/>
+  <rect x="40" y="146" width="1000" height="14" fill="#111C2E"/>
+  <circle cx="64" cy="140" r="9" fill="#F59E0B"/>
+  <text x="61" y="145" font-size="12" font-weight="800" fill="#0F172A">E</text>
+  <text x="82" y="145" font-size="14" font-weight="700" fill="#F8FAFC">ExpressNetz</text>
+  <rect x="420" y="129" width="150" height="22" rx="11" fill="#1E293B"/>
+  <text x="434" y="144" font-size="11.5" fill="#CBD5E1">📅 Sa 17.10. · 07:30</text>
+  <rect x="580" y="129" width="132" height="22" rx="11" fill="#1E293B"/>
+  <text x="594" y="144" font-size="11.5" fill="#CBD5E1">Szenario: Basis ▾</text>
+  <rect x="722" y="129" width="116" height="22" rx="11" fill="#312E81"/>
+  <text x="734" y="144" font-size="11.5" fill="#C7D2FE">⇄ Vergleichen</text>
+
+  <!-- Left sidebar -->
+  <rect x="40" y="160" width="210" height="540" fill="#131D30"/>
+  <text x="58" y="188" font-size="11" font-weight="700" fill="#64748B" letter-spacing="1">RESSOURCEN</text>
+  <text x="58" y="212" font-size="12.5" fill="#E2E8F0">Fahrer verfügbar</text>
+  <text x="222" y="212" font-size="12.5" font-weight="700" fill="#F59E0B" text-anchor="end">12</text>
+  <rect x="58" y="222" width="174" height="4" rx="2" fill="#334155"/>
+  <rect x="58" y="222" width="96" height="4" rx="2" fill="#F59E0B"/>
+  <circle cx="154" cy="224" r="7" fill="#F8FAFC"/>
+  <text x="58" y="254" font-size="12.5" fill="#E2E8F0">Busse verfügbar</text>
+  <text x="222" y="254" font-size="12.5" font-weight="700" fill="#F59E0B" text-anchor="end">8</text>
+  <rect x="58" y="264" width="174" height="4" rx="2" fill="#334155"/>
+  <rect x="58" y="264" width="70" height="4" rx="2" fill="#F59E0B"/>
+  <circle cx="128" cy="266" r="7" fill="#F8FAFC"/>
+  <text x="58" y="292" font-size="11" fill="#64748B">Datensatz: synthetisch · seed 42</text>
+
+  <text x="58" y="328" font-size="11" font-weight="700" fill="#64748B" letter-spacing="1">EBENEN</text>
+  <!-- toggles -->
+  <g font-size="12.5" fill="#E2E8F0">
+    <rect x="58" y="340" width="28" height="15" rx="7.5" fill="#F97316"/><circle cx="78" cy="347.5" r="5.5" fill="#fff"/>
+    <text x="96" y="352">Einwohner-Heatmap</text>
+    <rect x="58" y="366" width="28" height="15" rx="7.5" fill="#3B82F6"/><circle cx="78" cy="373.5" r="5.5" fill="#fff"/>
+    <text x="96" y="378">Schienennetz U/S</text>
+    <rect x="58" y="392" width="28" height="15" rx="7.5" fill="#475569"/><circle cx="66" cy="399.5" r="5.5" fill="#fff"/>
+    <text x="96" y="404" fill="#94A3B8">Busnetz heute</text>
+    <rect x="58" y="418" width="28" height="15" rx="7.5" fill="#FB923C"/><circle cx="78" cy="425.5" r="5.5" fill="#fff"/>
+    <text x="96" y="430">Baustellen</text>
+    <rect x="58" y="444" width="28" height="15" rx="7.5" fill="#A855F7"/><circle cx="78" cy="451.5" r="5.5" fill="#fff"/>
+    <text x="96" y="456">Events</text>
+  </g>
+
+  <text x="58" y="494" font-size="11" font-weight="700" fill="#64748B" letter-spacing="1">HEATMAP-MODUS</text>
+  <rect x="58" y="504" width="174" height="26" rx="6" fill="#1E293B"/>
+  <rect x="60" y="506" width="56" height="22" rx="5" fill="#334155"/>
+  <text x="88" y="521" font-size="10.5" fill="#F8FAFC" text-anchor="middle">Einw.</text>
+  <text x="145" y="521" font-size="10.5" fill="#94A3B8" text-anchor="middle">Distanz</text>
+  <text x="203" y="521" font-size="10.5" fill="#94A3B8" text-anchor="middle">Score</text>
+
+  <rect x="58" y="600" width="174" height="38" rx="8" fill="#F59E0B"/>
+  <text x="145" y="624" font-size="12.5" font-weight="700" fill="#0F172A" text-anchor="middle">✦ KI-Vorschlag berechnen</text>
+  <text x="145" y="660" font-size="10.5" fill="#64748B" text-anchor="middle">MILP · Mindesttakt NVP · ArbZG</text>
+
+  <!-- ===== MAP ===== -->
+  <rect x="250" y="160" width="550" height="540" fill="#18222F"/>
+  <g clip-path="url(#mapclip)">
+    <!-- river Pegnitz -->
+    <path d="M250 420 C 330 400, 380 440, 450 425 S 580 400, 650 430 S 760 445, 800 420" stroke="#1E3A5F" stroke-width="9" fill="none"/>
+    <!-- streets -->
+    <g stroke="#263445" stroke-width="2" fill="none">
+      <path d="M250 250 L800 300"/><path d="M250 560 L800 520"/><path d="M330 160 L380 700"/>
+      <path d="M600 160 L560 700"/><path d="M250 330 L520 440 L800 610"/><path d="M700 160 L470 700"/>
+      <path d="M250 640 L520 440 L790 170"/><circle cx="520" cy="440" r="70"/>
+    </g>
+    <!-- heat blobs: underserved areas -->
+    <ellipse cx="700" cy="235" rx="95" ry="70" fill="url(#heat)"/>
+    <ellipse cx="300" cy="620" rx="90" ry="70" fill="url(#heat)"/>
+    <ellipse cx="320" cy="215" rx="70" ry="55" fill="url(#heatSoft)"/>
+    <ellipse cx="740" cy="640" rx="70" ry="55" fill="url(#heatSoft)"/>
+    <!-- U-Bahn lines (schematic) -->
+    <path d="M270 300 L520 440 L760 560" stroke="#3B82F6" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M300 690 L470 470 L520 440 L610 300 L640 175" stroke="#EF4444" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M520 440 L430 330 L400 210" stroke="#14B8A6" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <!-- S-Bahn -->
+    <path d="M250 470 L800 395" stroke="#22C55E" stroke-width="3" stroke-dasharray="10 5" fill="none"/>
+    <!-- Stations -->
+    <g fill="#0F172A" stroke="#F8FAFC" stroke-width="2.5">
+      <circle cx="520" cy="440" r="8"/><circle cx="610" cy="300" r="6"/><circle cx="430" cy="330" r="5"/>
+      <circle cx="380" cy="362" r="5"/><circle cx="640" cy="500" r="5"/><circle cx="470" cy="470" r="5"/>
+    </g>
+    <!-- Express hub highlight -->
+    <circle cx="610" cy="300" r="16" fill="none" stroke="#F59E0B" stroke-width="2.5"/>
+    <text x="630" y="318" font-size="11" font-weight="700" fill="#FDE68A">Knoten „U-Nord“</text>
+
+    <!-- Express route -->
+    <path d="M735 205 L712 232 L688 250 L650 262 L622 290" stroke="#F59E0B" stroke-width="5" fill="none" stroke-dasharray="12 6" stroke-linecap="round"/>
+    <!-- detour around Baustelle -->
+    <path d="M712 232 C 735 260, 690 280, 650 262" stroke="#F59E0B" stroke-width="2" fill="none" stroke-opacity="0.55"/>
+    <!-- Start pin -->
+    <path d="M742 176 C 730 176, 724 186, 728 196 L742 214 L756 196 C 760 186, 754 176, 742 176 Z" fill="#F8FAFC"/>
+    <circle cx="742" cy="191" r="5" fill="#0F172A"/>
+    <rect x="652" y="160" width="82" height="20" rx="4" fill="#0F172A" opacity="0.85"/>
+    <text x="660" y="174" font-size="11" fill="#F8FAFC">Start (Klick)</text>
+    <!-- Baustelle -->
+    <path d="M688 236 L700 256 L676 256 Z" fill="#FB923C" stroke="#0F172A" stroke-width="1.5"/>
+    <text x="688" y="253" font-size="11" font-weight="800" fill="#0F172A" text-anchor="middle">!</text>
+    <!-- Event pin -->
+    <circle cx="690" cy="600" r="13" fill="#A855F7"/>
+    <text x="690" y="605" font-size="13" fill="#fff" text-anchor="middle">★</text>
+    <rect x="600" y="620" width="180" height="20" rx="4" fill="#0F172A" opacity="0.85"/>
+    <text x="608" y="634" font-size="11" fill="#E9D5FF">Stadion · Sa 15:30 · Event-Express</text>
+    <path d="M690 587 L640 500" stroke="#A855F7" stroke-width="3" stroke-dasharray="6 5" fill="none"/>
+  </g>
+
+  <!-- Map tooltip -->
+  <rect x="270" y="176" width="210" height="76" rx="8" fill="#0F172A" stroke="#334155"/>
+  <text x="284" y="198" font-size="11.5" font-weight="700" fill="#F8FAFC">Rasterzelle 100 m</text>
+  <text x="284" y="216" font-size="11" fill="#CBD5E1">Einwohner: 312</text>
+  <text x="284" y="232" font-size="11" fill="#CBD5E1">Fußweg zur Schiene: 1.450 m</text>
+  <text x="284" y="246" font-size="11" fill="#FCA5A5">Unterversorgung: hoch</text>
+
+  <!-- Heat legend on map -->
+  <rect x="266" y="652" width="200" height="36" rx="6" fill="#0F172A" opacity="0.9"/>
+  <rect x="276" y="660" width="180" height="8" rx="4" fill="url(#heatbar)"/>
+  <text x="276" y="682" font-size="10" fill="#94A3B8">gut angebunden</text>
+  <text x="456" y="682" font-size="10" fill="#94A3B8" text-anchor="end">weit weg</text>
+
+  <!-- Route info card on map -->
+  <rect x="540" y="182" width="0" height="0"/>
+
+  <!-- ===== RIGHT PANEL ===== -->
+  <rect x="800" y="160" width="240" height="540" fill="#131D30"/>
+  <text x="816" y="188" font-size="11" font-weight="700" fill="#64748B" letter-spacing="1">EXPRESS-LINIE X1</text>
+  <text x="816" y="210" font-size="12.5" fill="#E2E8F0">Fahrzeit 14 min</text>
+  <text x="1024" y="210" font-size="12.5" font-weight="700" fill="#4ADE80" text-anchor="end">−11 min</text>
+  <text x="816" y="228" font-size="12.5" fill="#E2E8F0">Neu angebunden</text>
+  <text x="1024" y="228" font-size="12.5" font-weight="700" fill="#F8FAFC" text-anchor="end">4.800 Einw.</text>
+  <text x="816" y="246" font-size="12.5" fill="#E2E8F0">Bedarf</text>
+  <text x="1024" y="246" font-size="12.5" font-weight="700" fill="#F8FAFC" text-anchor="end">2 Busse · 3 Fahrer</text>
+
+  <text x="816" y="282" font-size="11" font-weight="700" fill="#64748B" letter-spacing="1">KI-VORSCHLÄGE (UMSCHICHTEN)</text>
+  <!-- suggestion cards -->
+  <g>
+    <rect x="814" y="294" width="212" height="64" rx="8" fill="#1E293B"/>
+    <text x="826" y="314" font-size="12" font-weight="700" fill="#F8FAFC">L-34 · NVZ 10 → 20 min</text>
+    <text x="826" y="331" font-size="10.5" fill="#94A3B8">87 % schienenparallel · 14 %</text>
+    <text x="826" y="347" font-size="10.5" fill="#4ADE80">+1 Fahrer frei</text>
+    <circle cx="990" cy="340" r="10" fill="#14532D"/><text x="990" y="344" font-size="12" fill="#4ADE80" text-anchor="middle">✓</text>
+    <circle cx="1012" cy="340" r="10" fill="#450A0A"/><text x="1012" y="344" font-size="12" fill="#FCA5A5" text-anchor="middle">✕</text>
+  </g>
+  <g>
+    <rect x="814" y="366" width="212" height="64" rx="8" fill="#1E293B"/>
+    <text x="826" y="386" font-size="12" font-weight="700" fill="#F8FAFC">L-21 · 2 Fahrten SVZ streichen</text>
+    <text x="826" y="403" font-size="10.5" fill="#94A3B8">Takt bleibt ≥ 30 min (NVP)</text>
+    <text x="826" y="419" font-size="10.5" fill="#4ADE80">+1 Fahrer frei</text>
+    <circle cx="990" cy="412" r="10" fill="#14532D"/><text x="990" y="416" font-size="12" fill="#4ADE80" text-anchor="middle">✓</text>
+    <circle cx="1012" cy="412" r="10" fill="#450A0A"/><text x="1012" y="416" font-size="12" fill="#FCA5A5" text-anchor="middle">✕</text>
+  </g>
+  <g>
+    <rect x="814" y="438" width="212" height="64" rx="8" fill="#1E293B"/>
+    <text x="826" y="458" font-size="12" font-weight="700" fill="#F8FAFC">L-56 · Umlauf zusammenlegen</text>
+    <text x="826" y="475" font-size="10.5" fill="#94A3B8">Wendezeit 22 → 9 min</text>
+    <text x="826" y="491" font-size="10.5" fill="#4ADE80">+1 Fahrer frei</text>
+    <circle cx="990" cy="484" r="10" fill="#14532D"/><text x="990" y="488" font-size="12" fill="#4ADE80" text-anchor="middle">✓</text>
+    <circle cx="1012" cy="484" r="10" fill="#450A0A"/><text x="1012" y="488" font-size="12" fill="#FCA5A5" text-anchor="middle">✕</text>
+  </g>
+
+  <!-- driver balance -->
+  <text x="816" y="534" font-size="11" font-weight="700" fill="#64748B" letter-spacing="1">FAHRER-BILANZ</text>
+  <rect x="816" y="546" width="208" height="14" rx="7" fill="#334155"/>
+  <rect x="816" y="546" width="150" height="14" rx="7" fill="#F59E0B"/>
+  <rect x="966" y="546" width="30" height="14" fill="#4ADE80"/>
+  <text x="816" y="578" font-size="11" fill="#CBD5E1">frei 3 · Express 3 · Event 0</text>
+  <rect x="816" y="592" width="208" height="56" rx="10" fill="#052E16" stroke="#166534"/>
+  <text x="920" y="617" font-size="22" font-weight="800" fill="#4ADE80" text-anchor="middle">± 0 Fahrer</text>
+  <text x="920" y="637" font-size="10.5" fill="#86EFAC" text-anchor="middle">zusätzlich benötigt</text>
+
+  <!-- Bottom timeline -->
+  <rect x="40" y="700" width="1000" height="40" fill="#111C2E"/>
+  <rect x="40" y="726" width="1000" height="14" rx="0" fill="#111C2E"/>
+  <rect x="40" y="726" width="1000" height="14" rx="14" fill="#111C2E"/>
+  <text x="58" y="725" font-size="11" fill="#64748B">05</text>
+  <rect x="80" y="716" width="900" height="6" rx="3" fill="#1E293B"/>
+  <rect x="133" y="716" width="160" height="6" rx="3" fill="#7C2D12"/>
+  <rect x="613" y="716" width="160" height="6" rx="3" fill="#7C2D12"/>
+  <rect x="680" y="712" width="70" height="14" rx="3" fill="none" stroke="#A855F7" stroke-width="1.5"/>
+  <circle cx="213" cy="719" r="7" fill="#F8FAFC"/>
+  <text x="996" y="725" font-size="11" fill="#64748B">24</text>
+  <text x="213" y="737" font-size="9.5" fill="#94A3B8" text-anchor="middle">HVZ früh</text>
+  <text x="693" y="737" font-size="9.5" fill="#94A3B8" text-anchor="middle">HVZ spät</text>
+  <text x="760" y="737" font-size="9.5" fill="#D8B4FE" text-anchor="middle">Event</text>
+
+  <!-- ================= RIGHT MOOD COLUMN ================= -->
+  <!-- Palette -->
+  <g filter="url(#shadow)"><rect x="1070" y="120" width="290" height="250" rx="14" fill="#FFFFFF"/></g>
+  <text x="1090" y="150" font-size="13" font-weight="700" fill="#0F172A">Farbsystem</text>
+  <g font-size="11" fill="#334155">
+    <rect x="1090" y="164" width="40" height="40" rx="8" fill="#0F172A"/>
+    <text x="1140" y="180" font-weight="600">Nachtkarte</text><text x="1140" y="196" fill="#64748B">#0F172A · Grundfläche</text>
+    <rect x="1090" y="212" width="40" height="40" rx="8" fill="#F59E0B"/>
+    <text x="1140" y="228" font-weight="600">Express-Amber</text><text x="1140" y="244" fill="#64748B">#F59E0B · neue Linien, CTA</text>
+    <rect x="1090" y="260" width="40" height="40" rx="8" fill="#3B82F6"/>
+    <text x="1140" y="276" font-weight="600">Schiene</text><text x="1140" y="292" fill="#64748B">U-Bahn-Farben · S-Bahn grün</text>
+    <rect x="1090" y="308" width="40" height="40" rx="8" fill="url(#heatbar)"/>
+    <text x="1140" y="324" font-weight="600">Heatmap</text><text x="1140" y="340" fill="#64748B">dunkel → rot → gelb = weit weg</text>
+  </g>
+
+  <!-- Icon legend -->
+  <g filter="url(#shadow)"><rect x="1070" y="390" width="290" height="200" rx="14" fill="#FFFFFF"/></g>
+  <text x="1090" y="420" font-size="13" font-weight="700" fill="#0F172A">Kartensymbole</text>
+  <g font-size="11.5" fill="#334155">
+    <path d="M1100 434 C 1092 434, 1088 441, 1091 448 L1100 460 L1109 448 C 1112 441, 1108 434, 1100 434 Z" fill="#0F172A"/>
+    <text x="1124" y="451">Start (frei klickbar)</text>
+    <circle cx="1100" cy="480" r="7" fill="#fff" stroke="#0F172A" stroke-width="2.5"/>
+    <circle cx="1100" cy="480" r="12" fill="none" stroke="#F59E0B" stroke-width="2"/>
+    <text x="1124" y="484">Express-Ziel = Schienenknoten</text>
+    <line x1="1088" y1="510" x2="1112" y2="510" stroke="#F59E0B" stroke-width="4" stroke-dasharray="7 4"/>
+    <text x="1124" y="514">Express-Linie (Vorschlag)</text>
+    <path d="M1100 530 L1110 547 L1090 547 Z" fill="#FB923C"/>
+    <text x="1124" y="544">Baustelle (Sperrung / Verzögerung)</text>
+    <circle cx="1100" cy="570" r="9" fill="#A855F7"/><text x="1100" y="574" font-size="10" fill="#fff" text-anchor="middle">★</text>
+    <text x="1124" y="574">Event-Ort mit Besucherzahl</text>
+  </g>
+
+  <!-- Principles -->
+  <g filter="url(#shadow)"><rect x="1070" y="610" width="290" height="130" rx="14" fill="#0F172A"/></g>
+  <text x="1090" y="640" font-size="13" font-weight="700" fill="#F59E0B">Leitprinzipien</text>
+  <g font-size="11.5" fill="#E2E8F0">
+    <text x="1090" y="664">1 · Karte zuerst, Zahlen daneben</text>
+    <text x="1090" y="684">2 · Jeder KI-Vorschlag mit „Warum?“</text>
+    <text x="1090" y="704">3 · Mensch entscheidet: ✓ / ✕</text>
+    <text x="1090" y="724">4 · Fahrer-Bilanz immer sichtbar</text>
+  </g>
+
+  <!-- ================= BOTTOM ROW ================= -->
+  <!-- Event calendar -->
+  <g filter="url(#shadow)"><rect x="40" y="770" width="430" height="210" rx="14" fill="#FFFFFF"/></g>
+  <text x="60" y="800" font-size="13" font-weight="700" fill="#0F172A">Event-Kalender → Event-Express</text>
+  <g font-size="10.5" fill="#64748B" text-anchor="middle">
+    <text x="88" y="826">Mo</text><text x="142" y="826">Di</text><text x="196" y="826">Mi</text><text x="250" y="826">Do</text>
+    <text x="304" y="826">Fr</text><text x="358" y="826">Sa</text><text x="412" y="826">So</text>
+  </g>
+  <g>
+    <rect x="64" y="834" width="48" height="58" rx="6" fill="#F1F5F9"/><text x="72" y="850" font-size="11" fill="#334155">12</text>
+    <rect x="118" y="834" width="48" height="58" rx="6" fill="#F1F5F9"/><text x="126" y="850" font-size="11" fill="#334155">13</text>
+    <rect x="172" y="834" width="48" height="58" rx="6" fill="#F1F5F9"/><text x="180" y="850" font-size="11" fill="#334155">14</text>
+    <rect x="226" y="834" width="48" height="58" rx="6" fill="#F1F5F9"/><text x="234" y="850" font-size="11" fill="#334155">15</text>
+    <rect x="232" y="864" width="36" height="16" rx="4" fill="#E9D5FF"/><text x="250" y="876" font-size="9" fill="#6B21A8" text-anchor="middle">Messe</text>
+    <rect x="280" y="834" width="48" height="58" rx="6" fill="#F1F5F9"/><text x="288" y="850" font-size="11" fill="#334155">16</text>
+    <rect x="286" y="864" width="36" height="16" rx="4" fill="#E9D5FF"/><text x="304" y="876" font-size="9" fill="#6B21A8" text-anchor="middle">Arena</text>
+    <rect x="334" y="834" width="48" height="58" rx="6" fill="#A855F7"/><text x="342" y="850" font-size="11" fill="#fff">17</text>
+    <text x="358" y="868" font-size="9" fill="#fff" text-anchor="middle">Heimspiel</text>
+    <text x="358" y="882" font-size="9" fill="#F3E8FF" text-anchor="middle">~45k</text>
+    <rect x="388" y="834" width="48" height="58" rx="6" fill="#F1F5F9"/><text x="396" y="850" font-size="11" fill="#334155">18</text>
+  </g>
+  <rect x="64" y="904" width="372" height="58" rx="8" fill="#FAF5FF" stroke="#E9D5FF"/>
+  <text x="78" y="926" font-size="11.5" font-weight="700" fill="#6B21A8">Sa 17.10. Heimspiel → 6 Shuttle-Busse vorgeschlagen</text>
+  <text x="78" y="946" font-size="10.5" fill="#7E22CE">Anreise 13:30–15:15 · Abreise 17:20–18:30 · WE-Reserve</text>
+
+  <!-- Driver balance -->
+  <g filter="url(#shadow)"><rect x="490" y="770" width="420" height="210" rx="14" fill="#FFFFFF"/></g>
+  <text x="510" y="800" font-size="13" font-weight="700" fill="#0F172A">Fahrer-Bilanz im Tagesverlauf</text>
+  <g>
+    <line x1="520" y1="940" x2="890" y2="940" stroke="#E2E8F0"/>
+    <line x1="520" y1="890" x2="890" y2="890" stroke="#F1F5F9"/>
+    <line x1="520" y1="840" x2="890" y2="840" stroke="#F1F5F9"/>
+    <!-- bars: available vs needed -->
+    <g fill="#CBD5E1">
+      <rect x="530" y="850" width="18" height="90" rx="3"/><rect x="575" y="830" width="18" height="110" rx="3"/>
+      <rect x="620" y="860" width="18" height="80" rx="3"/><rect x="665" y="870" width="18" height="70" rx="3"/>
+      <rect x="710" y="835" width="18" height="105" rx="3"/><rect x="755" y="860" width="18" height="80" rx="3"/>
+      <rect x="800" y="885" width="18" height="55" rx="3"/><rect x="845" y="905" width="18" height="35" rx="3"/>
+    </g>
+    <g fill="#F59E0B">
+      <rect x="530" y="895" width="18" height="45" rx="3"/><rect x="575" y="880" width="18" height="60" rx="3"/>
+      <rect x="620" y="910" width="18" height="30" rx="3"/><rect x="665" y="915" width="18" height="25" rx="3"/>
+      <rect x="710" y="885" width="18" height="55" rx="3"/><rect x="755" y="905" width="18" height="35" rx="3"/>
+      <rect x="800" y="900" width="18" height="40" rx="3"/><rect x="845" y="925" width="18" height="15" rx="3"/>
+    </g>
+    <g font-size="10" fill="#64748B" text-anchor="middle">
+      <text x="539" y="956">6</text><text x="584" y="956">8</text><text x="629" y="956">10</text><text x="674" y="956">12</text>
+      <text x="719" y="956">16</text><text x="764" y="956">18</text><text x="809" y="956">20</text><text x="854" y="956">22</text>
+    </g>
+    <rect x="520" y="814" width="10" height="10" rx="2" fill="#CBD5E1"/><text x="536" y="823" font-size="10.5" fill="#475569">frei gewordene Fahrerstunden</text>
+    <rect x="700" y="814" width="10" height="10" rx="2" fill="#F59E0B"/><text x="716" y="823" font-size="10.5" fill="#475569">Express + Event</text>
+  </g>
+
+  <!-- KPI tiles -->
+  <g filter="url(#shadow)"><rect x="930" y="770" width="430" height="210" rx="14" fill="#FFFFFF"/></g>
+  <text x="950" y="800" font-size="13" font-weight="700" fill="#0F172A">KPI-Leiste (Pitch-Zahlen)</text>
+  <g>
+    <rect x="950" y="816" width="190" height="72" rx="10" fill="#FFFBEB"/>
+    <text x="964" y="848" font-size="24" font-weight="800" fill="#B45309">+12.400</text>
+    <text x="964" y="872" font-size="11" fill="#78350F">Einw. neu ≤ 15 min zur Schiene</text>
+    <rect x="1150" y="816" width="190" height="72" rx="10" fill="#F0FDF4"/>
+    <text x="1164" y="848" font-size="24" font-weight="800" fill="#15803D">−9 min</text>
+    <text x="1164" y="872" font-size="11" fill="#14532D">Ø Reisezeit Randgebiete</text>
+    <rect x="950" y="896" width="190" height="72" rx="10" fill="#F8FAFC"/>
+    <text x="964" y="928" font-size="24" font-weight="800" fill="#0F172A">± 0</text>
+    <text x="964" y="952" font-size="11" fill="#334155">zusätzliche Fahrer</text>
+    <rect x="1150" y="896" width="190" height="72" rx="10" fill="#FAF5FF"/>
+    <text x="1164" y="928" font-size="24" font-weight="800" fill="#7E22CE">3 / 3</text>
+    <text x="1164" y="952" font-size="11" fill="#581C87">Events abgedeckt diese Woche</text>
+  </g>
+
+  <text x="40" y="1000" font-size="10.5" fill="#94A3B8">Skizze, nicht maßstabsgetreu. Kartengeometrie schematisch; alle Linien, Kennzahlen und Events sind Platzhalter für die Demo.</text>
+</svg>
