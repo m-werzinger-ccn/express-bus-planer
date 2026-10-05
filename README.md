@@ -1,139 +1,123 @@
-# ExpressNetz Nürnberg – Demo v0.1
+# ExpressNetz Nürnberg
 
-> **Hackathon Track 1 · Fraunhofer IIS** – mehr Express-Busse in Nürnberg, ohne zusätzliche Fahrer:innen.
-> Die Demo zeigt, wo Menschen weit vom Schienennetz wohnen, plant Express-Linien zu U-/S-Bahn-Knoten und spielt die nötigen Fahrer:innen per Optimierung aus schwach genutzten Fahrten frei – inklusive Events und Baustellen.
+**Schneller zur Schiene – mit dem Personal, das schon da ist.**
 
-![Express-Linie mit KI-Vorschlägen](docs/screenshot-express.png)
+ExpressNetz zeigt, wo in Nürnberg Menschen weit vom Schienennetz entfernt wohnen, plant Express-Busse zu den großen U- und S-Bahn-Knoten und gewinnt die dafür nötigen Fahrer:innen aus dem bestehenden Busnetz zurück. Automatisch, regelkonform und für jede Entscheidung nachvollziehbar.
 
-<img src="docs/screenshot-event.png" width="49%"> <img src="docs/screenshot-heatmap.png" width="49%">
+![ExpressNetz: Express-Linie und KI-Plan](docs/screenshot-express.png)
 
-Zielbild und Feature-Beschreibung: [`PLAN.md`](PLAN.md) · Moodboard: [`docs/moodboard.svg`](docs/moodboard.svg)
+*Hackathon Track 1 · Fraunhofer IIS – KI-Optimierung für Express-Busse in Nürnberg trotz Fahrermangel*
 
 ---
 
-## Schnellstart
+## Das Problem
 
-Voraussetzungen: Python ≥ 3.10, Node ≥ 18.
+- **Rund 199.000 Menschen in Nürnberg wohnen mehr als 800 m von der nächsten U- oder S-Bahn entfernt.** Rund 74.000 von ihnen brauchen heute über 15 Minuten, bis sie überhaupt an der Schiene sind.
+- Express-Busse würden diese Gebiete schnell anbinden. Aber **jede neue Linie braucht Fahrer:innen**, und genau die fehlen.
+- Das Ergebnis: Busse stehen im Depot, während gleichzeitig manche Fahrten parallel zur U-Bahn fast leer unterwegs sind.
+
+## Die Lösung
+
+ExpressNetz verbindet Netzplanung und Personaleinsatz in einem Werkzeug:
+
+1. **Sehen** – Eine Versorgungs-Heatmap auf Basis echter Einwohnerdaten macht sichtbar, wo der Weg zur Schiene am längsten ist.
+2. **Planen** – Ein Klick in die Karte genügt: ExpressNetz wählt den passenden Schienenknoten, berechnet die Route auf dem echten Straßennetz und setzt Halte dort, wo sie am meisten Menschen erreichen.
+3. **Ausgleichen** – Ein Optimierungsmodell findet sofort die Fahrten, die sich am verträglichsten ausdünnen lassen, und bringt die Fahrer-Bilanz auf **± 0**. Der Mindesttakt des Nahverkehrsplans bleibt dabei immer eingehalten.
+4. **Vorausschauen** – Großveranstaltungen und Baustellen fließen automatisch in die Planung ein.
+
+---
+
+## Funktionen
+
+### Versorgungs-Heatmap
+Ein 100-m-Raster über ganz Nürnberg zeigt Einwohner, Fußweg zur nächsten U-/S-Bahn und einen kombinierten Unterversorgungs-Score. Die am schlechtesten angebundenen Gebiete werden automatisch markiert und lassen sich direkt als Startpunkt für eine Express-Linie wählen.
+
+![Versorgungs-Heatmap](docs/screenshot-heatmap.png)
+
+### Express-Planer
+Startpunkt anklicken, und ExpressNetz schlägt die drei besten Zielknoten vor, bewertet nach Takt, Linienzahl und Umsteigemöglichkeiten. Für jede Linie sieht man sofort:
+- Fahrzeit und Reisezeitgewinn gegenüber heute
+- wie viele Einwohner schneller ans Schienennetz kommen
+- wie viele Busse und Fahrer:innen der gewählte Takt braucht
+
+Takt, Betriebszeit und Zwischenhalte lassen sich frei anpassen.
+
+### KI-Personalausgleich
+Bei jeder Änderung rechnet ExpressNetz im Hintergrund neu und schlägt einen Plan vor, der den Personalbedarf genau ausgleicht. Bevorzugt werden Fahrten, die schwach ausgelastet sind und parallel zur Schiene laufen. Jede Maßnahme ist:
+- **sichtbar** – die betroffene Linie wird in der Karte hervorgehoben,
+- **begründet** – mit Auslastung, Schienennähe, neuem Takt und Mehrwartezeit,
+- **steuerbar** – fixieren, ausschließen oder eigene Maßnahmen hinzufügen. Der Plan passt sich sofort an.
+
+### Event-Express
+Ein Veranstaltungskalender plant Shuttle-Busse für Großereignisse wie Heimspiele, Messen oder Konzerte: Anzahl der Busse, An- und Abreisefenster und Routen von den großen Knoten zum Veranstaltungsort. Der zusätzliche Personalbedarf fließt direkt in die Bilanz.
+
+![Event-Express zur Messe](docs/screenshot-event.png)
+
+### Baustellen-Routing
+Baustellen werden datumsgenau berücksichtigt. Gesperrte Straßen umfährt ExpressNetz automatisch, Verzögerungen gehen in die Fahrzeit ein, und betroffene Linien werden gekennzeichnet.
+
+### Szenarien
+Fertige Vorlagen wie „Krankheitswelle“, „Messe-Mittwoch“ oder „Heimspiel-Samstag“ zeigen in Sekunden, wie robust der Plan ist. Eigene Szenarien lassen sich speichern und wieder laden.
+
+---
+
+## Beispiel aus der Demo
+
+| | |
+|---|---|
+| **Ausgangslage** | 269 Busse einsatzbereit, aber nur 255 Fahrer:innen in der Spitze – 14 Busse stehen im Depot |
+| **Neue Linie** | Express X1 aus dem unterversorgten Süden zur U-Bahn Langwasser Mitte |
+| **Wirkung** | Reisezeit ab Start **43 → 25 Minuten**, rund **5.000 Einwohner** kommen schneller zur Schiene |
+| **Bedarf** | 4 Busse, 4 Fahrer:innen |
+| **Ausgleich** | 4 gezielte Taktanpassungen in der Hauptverkehrszeit, Mindesttakt überall eingehalten |
+| **Ergebnis** | **± 0 zusätzliche Fahrer:innen** |
+
+---
+
+## Mehrwert
+
+**Für Fahrgäste** – schnellere Wege aus schlecht angebundenen Stadtteilen zur U- und S-Bahn.
+
+**Für den Verkehrsbetrieb** – mehr Angebot ohne zusätzliches Personal. Vorhandene Fahrzeuge und Fahrer:innen werden dort eingesetzt, wo sie den größten Nutzen haben.
+
+**Für die Planung** – Entscheidungen auf Basis offener Daten, in wenigen Minuten durchgespielt, mit nachvollziehbarer Begründung für jede Maßnahme. Die KI schlägt vor, der Mensch entscheidet.
+
+---
+
+## Datengrundlage
+
+ExpressNetz arbeitet mit **echten offenen Daten**:
+- Fahrplan des VGN (GTFS) – Haltestellen, U-/S-Bahn-, Tram- und Buslinien
+- Zensus 2022 – Einwohner im 100-m-Raster
+- OpenStreetMap – Straßennetz für das Bus-Routing
+
+Personalbestand, Fuhrpark, Auslastung, Veranstaltungen und Baustellen sind für die Demo **realistisch simuliert**, da diese Daten nicht öffentlich sind. Die simulierten Tabellen sind so aufgebaut, dass sie sich später durch echte Betriebsdaten ersetzen lassen.
+
+## Ausblick
+
+- Anbindung echter Fahrgastzählungen und Dienstpläne
+- Echtzeitdaten (GTFS-Realtime) für Verstärkerbusse im laufenden Betrieb
+- Live-Daten zu Baustellen und Veranstaltungen der Stadt Nürnberg
+- Detaillierte Dienstplanregeln (Pausen, Ruhezeiten) direkt im Optimierungsmodell
+
+## Technologie
+
+Python · FastAPI · Optimierung mit gemischt-ganzzahliger Programmierung (PuLP/CBC) · React · MapLibre · deck.gl
+
+---
+
+## Demo starten
+
+Voraussetzungen: Python 3.10 oder neuer, Node 18 oder neuer.
 
 ```bash
-./start.sh            # legt .venv an, baut das Frontend, startet alles
-# → http://localhost:8000
+./start.sh
 ```
 
-Manuell / Entwicklung (zwei Terminals, Frontend mit Hot-Reload):
+Danach im Browser **http://localhost:8000** öffnen.
 
-```bash
-# Terminal 1 – Backend
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r backend/requirements.txt
-cd backend && uvicorn app.main:app --reload --port 8000
-
-# Terminal 2 – Frontend
-cd frontend && npm install && npm run dev   # → http://localhost:5173 (API wird an :8000 weitergeleitet)
-```
-
-Die aufbereiteten Daten liegen bereits in `data/processed` und `data/synthetic`. Die Pipeline muss nur laufen, wenn ihr Daten oder Regeln ändert (siehe unten).
-
-Tests: `cd backend && python -m pytest -q`
+Technische Details für das Team: [`PLAN.md`](PLAN.md) · [`docs/datenmodell.md`](docs/datenmodell.md) · [`docs/datenquellen.md`](docs/datenquellen.md)
 
 ---
 
-## Was die Demo kann
-
-| # | Feature | Stand | Umsetzung in v0.1 |
-|---|---|---|---|
-| F1 | Heatmap Einwohner × Schienennetz | ✅ | Zensus-2022-100-m-Raster (echt), 3 Modi: Einwohner / Fußweg zur U-/S-Bahn / Unterversorgungs-Score; U-Bahn, S-Bahn, Tram, Regionalbahn aus VGN-GTFS; Tooltip je Zelle |
-| F2 | Express-Ziele = Knotenpunkte | ✅ | Knoten-Score je Schienenstation (Abfahrten/h, Linien, U+S-Verknüpfung); Top-3-Vorschlag je Startpunkt, im Panel umschaltbar |
-| F3 | Start frei wählbar | ✅ | „Start auf Karte wählen“ und in die Karte klicken (oder auf ein unterversorgtes Gebiet) → Route auf echtem OSM-Straßennetz, automatische Zwischenhalte, eigene Zwischenhalte per Klick, Takt 10/15/20/30, Betrieb HVZ oder 6–20 Uhr; Wirkung: Einwohner im Einzugsbereich, Zeitgewinn bis zum Knoten |
-| F4 | Fahrer & Busse als Optionen | ✅ | Schieberegler für **einsatzbereite Busse** und **Fahrer:innen im Dienst zur Spitze** (beide in derselben Einheit: 1 Fahrer:in je Bus im Einsatz; Standard: 269 Busse, aber nur 255 Fahrer:innen → 14 Busse stehen im Depot); synthetischer Datensatz (Seed) aus echtem Fahrplan: Auslastung je Fahrt, Umläufe, Fahrer- und Busbestand; Vorlagen „Krankheitswelle“, „Messe-Mittwoch“, „Heimspiel-Samstag“ |
-| F5 | Fahrten anpassen / KI-Vorschlag | ✅ | 61 Kandidaten-Maßnahmen in der Hauptverkehrszeit (Takt ×1,5 oder ×2 je Linie), die Busse und damit Fahrer:innen in der Spitze freisetzen, nur wenn der Mindesttakt (NVP 2025, vereinfacht) eingehalten wird und die Restfahrten nicht überfüllt sind; der KI-Plan rechnet bei jeder Änderung automatisch neu (MILP, PuLP/CBC) und bringt die Fahrer-Bilanz auf ± 0 bei minimaler Mehrwartezeit; Maßnahmen anklickbar (Karte zoomt, Linie wird hervorgehoben, Begründung klappt auf), fixieren oder ausschließen, eigene Maßnahmen hinzufügen |
-| F6 | Event-Express + Kalender | ✅ | Kalender-Button unten links öffnet ein Monatsfenster, 6 fiktive Events an echten Orten; Shuttle-Bedarf aus Besucherzahl, Routen von großen Knoten, An-/Abreisefenster; fließt in die Bilanz ein |
-| F7 | Baustellen | ✅ | 8 fiktive Baustellen auf echten Straßen mit Zeitraum; Datum wechseln → Sperrungen werden umfahren, Verzögerungen verlängern die Fahrzeit, Hinweis im Panel |
-| – | Szenarien | 🟡 | Speichern/Laden (JSON im Backend); Vergleichsansicht folgt |
-
-### Demo-Ablauf (≈ 3 min Pitch)
-1. **Heatmap „Score“**: die hellgrünen bis gelben Flächen sind dicht bewohnt und weit weg von der Schiene.
-2. **Start auf Karte wählen** und ins unterversorgte **Gebiet 4** im Süden klicken → Express X1 zur U-Bahn Langwasser Mitte, Reisezeit ab Start z. B. 43 → 25 min. Die Route umfährt automatisch eine Baustelle.
-3. **KI-Plan** rechnet sofort: ohne Maßnahmen fehlen 6 Fahrer:innen, mit Plan **± 0**. Maßnahme anklicken → Linie wird in der Karte hervorgehoben.
-4. Eine Maßnahme ausschließen → der Plan findet sofort eine Alternative, wieder ± 0.
-5. **Kalender** (unten links) → **Mi 14.10. Messe** → Event-Express mit Shuttle-Bussen, der Plan gleicht automatisch aus.
-6. **Sa Heimspiel** → am Wochenende ist mehr Reserve da, Shuttles sind ohne Ausdünnung möglich.
-
----
-
-## Aufbau
-
-```
-expressnetz/
-├── pipeline/            Datenaufbereitung (Python)
-│   ├── 10_gtfs.py         Stationen, Schienenknoten, Linienverläufe, VAG-Stadtbusfahrten am Stichtag
-│   ├── 20_grid.py         Zensus-Raster: Fußweg/Zeit zur Schiene, Score, Hotspots
-│   ├── 30_roads.py        OSM-Straßennetz für Bus-Routing
-│   ├── 40_synthetic.py    Auslastung, Umläufe, Busse, Fahrer, Events, Baustellen (Seed)
-│   ├── rules.yaml         alle Annahmen: Mindesttakt, Geschwindigkeiten, Schichtlänge, Event-Anteile …
-│   └── run_all.sh         Downloads + komplette Pipeline
-├── backend/app/         FastAPI
-│   ├── main.py            Endpunkte, liefert auch das gebaute Frontend aus
-│   ├── routing.py         Dijkstra auf dem Straßengraphen inkl. Baustellen
-│   ├── express.py         Knotenvorschläge, Express-Bewertung
-│   ├── optimizer.py       Maßnahmen, Bilanz, MILP/Greedy
-│   └── events.py          Event-Shuttle-Planung
-├── frontend/src/        React + MapLibre + deck.gl
-├── data/processed/      aufbereitete echte Daten (im Repo)
-├── data/synthetic/      fiktive Daten (im Repo)
-└── docs/                Moodboard, Datenmodell, Datenquellen, Screenshots
-```
-
-### API (Auszug)
-| Methode | Endpoint | Zweck |
-|---|---|---|
-| GET | `/api/meta` | Baseline, KPIs, Regeln, Quellen |
-| GET | `/api/grid` · `/api/network` · `/api/hotspots` | Heatmap, Schienen-/Busnetz, Hotspots |
-| GET | `/api/hubs?lon=&lat=` | Top-3-Knoten für einen Startpunkt |
-| POST | `/api/express/route` | Express-Linie bewerten (Route, Halte, Wirkung, Bedarf) |
-| POST | `/api/bilanz` · `/api/optimize` | Fahrer-/Bus-Bilanz, KI-Vorschlag |
-| GET/POST | `/api/events` · `/api/events/{id}/plan` | Eventkalender, Shuttle-Plan |
-| GET | `/api/baustellen?datum=` | aktive Baustellen |
-| GET/POST | `/api/scenarios` | Szenarien |
-
-Interaktive Doku: http://localhost:8000/docs
-
----
-
-## Daten & Annahmen
-
-**Echt (offene Daten):**
-- VGN GTFS Soll-Fahrplan, Stichtag Di 13.10.2026 – 48 VAG-Stadtbuslinien, 4.672 Fahrten, 101 Schienenstationen (CC BY 3.0 DE)
-- Zensus 2022, 100-m-Gitter – ca. 523.000 Einwohner im Raum Nürnberg (dl-de/by-2-0)
-- OpenStreetMap, BBBike-Extrakt Nürnberg – 15.000 Knoten / 36.000 Kanten Straßennetz (ODbL)
-
-**Fiktiv (synthetisch, `seed 42`) – in der UI gekennzeichnet:**
-- Fahrgäste/Auslastung je Fahrt (aus Einwohnern im Einzugsbereich + Tagesganglinie), Umläufe, Fahrer- und Busbestand, Events, Baustellen
-
-**Vereinfachungen (bewusst, für v0.1):**
-- Fußwege = Luftlinie × 1,3; „Zeit bis Schiene heute“ = Schätzung (laufen oder Bus/Tram + Umstieg)
-- „Schienennetz“ für Distanz und Hotspots = U-/S-/Regionalbahn; die Tram zählt (noch) nicht als Schiene
-- Maßnahmen basieren auf dem Werktagsfahrplan; Wochenende über Faktoren in `rules.yaml`
-- Mindesttakt nach Nahverkehrsplan 2025 vereinfacht (dicht 15 min / locker 30 min, abends 30/60)
-- Engpass = Spitzenstunde: Bilanz zählt Fahrer:innen gleichzeitig im Dienst (1 je Bus im Einsatz). Personal pro Tag ≈ 1,38 × Spitzenbedarf (Früh-/Spätschicht), wird im Regler mit angezeigt. Dienststunden je Tag sind Zusatzinfo; Event-Shuttle = 1 Fahrer:in je Bus
-
-### Pipeline neu rechnen
-```bash
-pip install -r pipeline/requirements.txt
-cd pipeline && ./run_all.sh          # lädt fehlende Rohdaten nach data/raw (~140 MB) und rechnet alles neu
-SEED=7 ./run_all.sh                  # anderer synthetischer Datensatz
-```
-
----
-
-## Nächste Schritte
-- [ ] r5py/OSMnx: echte Fußwege und Tür-zu-Tür-Reisezeiten statt Schätzung
-- [ ] Auslastung mit Netzbelastung 2023 kalibrieren (PDF georeferenzieren)
-- [ ] Baustellen der Stadt Nürnberg scrapen + geocodieren, BayernInfo (DATEX II) anbinden
-- [ ] Veranstaltungskalender-Schnittstelle der Stadt anfragen
-- [ ] Szenario-Vergleich nebeneinander, Export als CSV
-- [ ] Option „Tram zählt als Schiene“, Samstag/Sonntag-Fahrplan aus GTFS
-- [ ] Dienstplan-Regeln (Pausen, Ruhezeiten) im MILP statt Schicht-Pauschale
-
-## Lizenzen der Daten
-VGN GTFS © VGN, CC BY 3.0 DE · Zensus 2022 © Statistisches Bundesamt, dl-de/by-2-0 · © OpenStreetMap-Mitwirkende, ODbL · Kartenstil © CARTO
+<sub>Daten: VGN GTFS © VGN, CC BY 3.0 DE · Zensus 2022 © Statistisches Bundesamt, dl-de/by-2-0 · © OpenStreetMap-Mitwirkende, ODbL · Kartenstil © CARTO</sub>
