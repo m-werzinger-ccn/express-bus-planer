@@ -42,17 +42,19 @@ def candidates() -> list[dict]:
             if ausl_max * faktor > 95:  # Restfahrten würden überfüllt
                 continue
             removed = [t for d in dirs for i, t in enumerate(d.itertuples()) if pick(i)]
-            if not removed:
+            if not removed or zf not in SPITZE:  # Engpass ist die Spitze: nur HVZ-Maßnahmen setzen Personal frei
                 continue
             frei_h = sum(t.fahrzeit_min + WENDE for t in removed) / 60
-            busse_frei = max(0, math.ceil(C / h) - math.ceil(C / h_neu)) if zf in SPITZE else 0
+            busse_frei = max(0, math.ceil(C / h) - math.ceil(C / h_neu))
+            if busse_frei == 0:
+                continue
             mehrwarte_h = pax * (h_neu - h) / 2 / 60 * (1 - 0.6 * parallel)
             aid = f"{linie}|{zf}|x{faktor:g}"
             out.append({
                 "id": aid, "gruppe": f"{linie}|{zf}", "linie": str(linie), "zeitfenster": zf,
                 "faktor": faktor, "takt_alt": round(h, 1), "takt_neu": round(h_neu, 1), "mindesttakt": mindest,
                 "gebiet": gebiet, "fahrten_weniger": len(removed), "fahrerstunden_frei": round(frei_h, 1),
-                "fahrer_frei": round(frei_h / SCHICHT, 2), "busse_frei": int(busse_frei),
+                "fahrer_frei": int(busse_frei), "busse_frei": int(busse_frei),  # je Bus weniger in der Spitze 1 Fahrer:in frei
                 "fahrgaeste_betroffen": int(pax), "mehrwartezeit_h": round(mehrwarte_h, 1),
                 "auslastung_alt": round(ausl), "auslastung_neu": round(min(ausl * faktor, 140)),
                 "schienenparallel": round(parallel, 2),
@@ -62,12 +64,12 @@ def candidates() -> list[dict]:
                     f"Auslastung Ø {ausl:.0f} % → ca. {min(ausl * faktor, 140):.0f} %",
                     f"{parallel * 100:.0f} % der Halte schienennah (≤ 600 m)",
                     f"Takt bleibt im Mindeststandard: {h_neu:.0f} ≤ {mindest} min (NVP, Gebiet {gebiet})",
-                    f"{len(removed)} Fahrten weniger → {frei_h:.1f} Fahrerstunden frei",
+                    f"{len(removed)} Fahrten weniger → {busse_frei} Bus/Fahrer:in weniger in der Spitze, {frei_h:.1f} Dienststunden frei",
                 ],
             })
     # Kosten-Kennzahl für Ranking: Mehrwartezeit je freier Fahrerschicht
     for c in out:
-        c["kosten"] = round(c["mehrwartezeit_h"] / max(c["fahrer_frei"], 0.05), 1)
+        c["kosten"] = round(c["mehrwartezeit_h"] / max(c["fahrer_frei"], 1), 1)
     return out
 
 
@@ -84,7 +86,7 @@ def bilanz(fahrer_verfuegbar: float, busse_verfuegbar: float, datum: str | None,
     cmap = _cand_by_id()
     acc = [cmap[a] for a in accepted if a in cmap]
 
-    f_basis = s.baseline["fahrer_bedarf"] * fb
+    f_basis = s.baseline["fahrer_spitze_bedarf"] * fb
     f_frei = sum(c["fahrer_frei"] for c in acc) * fb
     f_express = sum(e.get("fahrer", 0) for e in express)
     f_event = sum(e.get("fahrer", 0) for e in events)
@@ -104,13 +106,17 @@ def bilanz(fahrer_verfuegbar: float, busse_verfuegbar: float, datum: str | None,
                    "event": r1(f_event), "saldo": r1(f_saldo)},
         "busse": {"verfuegbar": r1(busse_verfuegbar), "basis": r1(b_basis), "frei": r1(b_frei),
                   "express": r1(b_express), "event": r1(b_event), "saldo": r1(b_saldo)},
+        "dienststunden": {"basis": r1(s.baseline["fahrstunden"] * fb), "frei": r1(sum(c["fahrerstunden_frei"] for c in acc) * fb),
+                          "express": r1(sum(e.get("fahrerstunden", 0) for e in express))},
         "mehrwartezeit_h": r1(sum(c["mehrwartezeit_h"] for c in acc)),
         "fahrten_weniger": sum(c["fahrten_weniger"] for c in acc),
     }
 
 
 def optimize(fahrer_verfuegbar, busse_verfuegbar, datum, express, events, accepted, rejected, method="milp"):
-    """Wählt Maßnahmen, sodass Fahrer- und Bus-Saldo ≥ 0 bei minimaler Mehrwartezeit."""
+    """Wählt Maßnahmen, sodass die Fahrer-Bilanz möglichst genau ± 0 ist (Busse ≥ 0) bei minimaler Mehrwartezeit.
+    accepted = vom Menschen fixierte Maßnahmen, rejected = ausgeschlossene."""
+    method = "milp"
     b0 = bilanz(fahrer_verfuegbar, busse_verfuegbar, datum, express, accepted, events)
     fb = RULES["wochentag_faktor"]["bedarf"][b0["wochentag"]]
     need_f = max(0.0, -b0["fahrer"]["saldo"]) / fb
@@ -130,8 +136,10 @@ def optimize(fahrer_verfuegbar, busse_verfuegbar, datum, express, events, accept
             chosen = _greedy(pool, need_f, need_b)
 
     b1 = bilanz(fahrer_verfuegbar, busse_verfuegbar, datum, express, accepted + [c["id"] for c in chosen], events)
+    cmap = _cand_by_id()
+    plan = [{**cmap[a], "fixiert": True} for a in accepted if a in cmap] + [{**c, "fixiert": False} for c in chosen]
     return {"methode": used, "bedarf": {"fahrer": round(need_f, 2), "busse": round(need_b, 2)},
-            "vorschlaege": chosen, "bilanz_vorher": b0, "bilanz_nachher": b1,
+            "vorschlaege": chosen, "plan": plan, "bilanz_vorher": b0, "bilanz_nachher": b1,
             "kandidaten_gesamt": len(candidates())}
 
 
@@ -157,9 +165,11 @@ def _milp(pool, need_f, need_b):
     m = pulp.LpProblem("fahrer_freispielen", pulp.LpMinimize)
     x = {c["id"]: pulp.LpVariable(f"x_{i}", cat="Binary") for i, c in enumerate(pool)}
     sf = pulp.LpVariable("fehl_fahrer", lowBound=0)
+    of = pulp.LpVariable("ueber_fahrer", lowBound=0)
     sb = pulp.LpVariable("fehl_busse", lowBound=0)
-    m += pulp.lpSum(c["mehrwartezeit_h"] * x[c["id"]] for c in pool) + 10_000 * sf + 10_000 * sb
-    m += pulp.lpSum(c["fahrer_frei"] * x[c["id"]] for c in pool) + sf >= need_f
+    # Ziel: Fahrer-Bilanz genau ± 0 (Fehlen sehr teuer, Überdeckung teuer), danach minimale Mehrwartezeit
+    m += pulp.lpSum(c["mehrwartezeit_h"] * x[c["id"]] for c in pool) + 10_000 * sf + 500 * of + 10_000 * sb
+    m += pulp.lpSum(c["fahrer_frei"] * x[c["id"]] for c in pool) + sf - of == need_f
     m += pulp.lpSum(c["busse_frei"] * x[c["id"]] for c in pool) + sb >= need_b
     groups: dict[str, list] = {}
     for c in pool:

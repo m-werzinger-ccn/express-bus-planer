@@ -5,7 +5,6 @@ import TopBar from './components/TopBar.jsx'
 import LeftPanel from './components/LeftPanel.jsx'
 import MapView from './components/MapView.jsx'
 import RightPanel from './components/RightPanel.jsx'
-import BottomBar from './components/BottomBar.jsx'
 
 const START_DATUM = '2026-10-13' // Di, Werktag = GTFS-Stichtag
 
@@ -19,6 +18,7 @@ export default function App() {
   const [hotspots, setHotspots] = useState([])
   const [events, setEvents] = useState([])
   const [baustellen, setBaustellen] = useState([])
+  const [allActions, setAllActions] = useState([])
   const [fehler, setFehler] = useState(null)
 
   // ---------- Szenario ----------
@@ -27,39 +27,38 @@ export default function App() {
   const [busse, setBusse] = useState(null)
   const [express, setExpress] = useState([])
   const [activeId, setActiveId] = useState(null)
-  const [accepted, setAccepted] = useState([])
-  const [rejected, setRejected] = useState([])
+  const [pinned, setPinned] = useState([])     // vom Menschen fixierte Maßnahmen
+  const [excluded, setExcluded] = useState([]) // vom Menschen ausgeschlossene Maßnahmen
   const [eventsAus, setEventsAus] = useState([])
-  const [method, setMethod] = useState('milp')
+
+  // ---------- Ergebnis KI-Plan (automatisch) ----------
+  const [plan, setPlan] = useState([])
+  const [bilanz, setBilanz] = useState(null)
+  const [bilanzOhne, setBilanzOhne] = useState(null)
+  const [planEvents, setPlanEvents] = useState([])
+  const [rechnet, setRechnet] = useState(false)
 
   // ---------- UI ----------
-  const [layers, setLayers] = useState({ heat: true, rail: true, bus: false, baustellen: true, events: true, hotspots: true })
+  const [layers, setLayers] = useState({ heat: true, rail: true, bus: true, plan: true, baustellen: true, events: true, hotspots: true })
   const [heatMode, setHeatMode] = useState('score')
   const [mode, setMode] = useState('idle') // idle | start | waypoint
-  const [suggestions, setSuggestions] = useState(null)
-  const [optInfo, setOptInfo] = useState(null)
-  const [busy, setBusy] = useState(false)
-  const [bilanz, setBilanz] = useState(null)
   const [eventPlan, setEventPlan] = useState(null)
-  const [highlightLine, setHighlightLine] = useState(null)
-  const [allActions, setAllActions] = useState([])
+  const [selectedAction, setSelectedAction] = useState(null)
+  const [hoverLine, setHoverLine] = useState(null)
   const [focus, setFocus] = useState(null)
+  const [calOpen, setCalOpen] = useState(false)
 
-  // Stammdaten laden
   useEffect(() => {
     Promise.all([api.meta(), api.grid(), api.network(), api.hotspots(), api.events(), api.actions()])
       .then(([m, g, n, h, e, a]) => {
         setMeta(m); setGrid(g); setNetwork(n); setHotspots(h); setEvents(e); setAllActions(a)
-        setFahrer(m.baseline.fahrer_verfuegbar)
+        setFahrer(m.baseline.fahrer_spitze_verfuegbar)
         setBusse(m.baseline.busse_verfuegbar)
       })
       .catch((e) => setFehler(String(e)))
   }, [])
 
-  // Baustellen je Datum
-  useEffect(() => {
-    api.baustellen(datum).then((fc) => setBaustellen(fc.features)).catch(() => {})
-  }, [datum])
+  useEffect(() => { api.baustellen(datum).then((fc) => setBaustellen(fc.features)).catch(() => {}) }, [datum])
 
   // ---------- Express-Linien ----------
   const recompute = useCallback(async (line, d = datum) => {
@@ -79,7 +78,6 @@ export default function App() {
   }, [express, recompute])
 
   const addExpressAt = useCallback(async (lon, lat) => {
-    setBusy(true)
     try {
       const hubs = await api.hubs(lon, lat)
       const id = nextId++
@@ -91,16 +89,14 @@ export default function App() {
       setExpress((xs) => [...xs, done])
       setActiveId(id)
       if (done.result) setFocus({ points: [...done.result.route, [done.result.hub.lon, done.result.hub.lat]] })
-    } catch (e) { setFehler(String(e)) } finally { setBusy(false); setMode('idle') }
+    } catch (e) { setFehler(String(e)) } finally { setMode('idle') }
   }, [recompute])
 
-  // Datum gewechselt → Routen neu (Baustellen!)
   const lastDatum = useRef(datum)
   useEffect(() => {
     if (lastDatum.current === datum) return
     lastDatum.current = datum
-    if (!express.length) return
-    Promise.all(express.map((l) => recompute(l, datum))).then(setExpress)
+    if (express.length) Promise.all(express.map((l) => recompute(l, datum))).then(setExpress)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [datum])
 
@@ -115,33 +111,37 @@ export default function App() {
 
   const removeLine = (id) => setExpress((xs) => xs.filter((l) => l.id !== id))
 
-  // ---------- Bilanz (Server rechnet, eine Quelle der Wahrheit) ----------
+  // ---------- KI-Plan: bei jeder Änderung automatisch auf ± 0 rechnen ----------
   const needs = useMemo(() => express.filter((l) => l.result).map((l) => l.result.bedarf), [express])
-  const bilanzReq = useMemo(() => ({
+  const req = useMemo(() => ({
     fahrer_verfuegbar: fahrer ?? 0, busse_verfuegbar: busse ?? 0, datum, express: needs,
-    accepted, rejected, events_aus: eventsAus, method,
-  }), [fahrer, busse, datum, needs, accepted, rejected, eventsAus, method])
+    accepted: pinned, rejected: excluded, events_aus: eventsAus,
+  }), [fahrer, busse, datum, needs, pinned, excluded, eventsAus])
 
   useEffect(() => {
     if (fahrer == null) return
-    const t = setTimeout(() => api.bilanz(bilanzReq).then(setBilanz).catch((e) => setFehler(String(e))), 150)
-    return () => clearTimeout(t)
-  }, [bilanzReq, fahrer])
+    setRechnet(true)
+    let alive = true
+    const t = setTimeout(() => {
+      Promise.all([api.optimize(req), api.bilanz({ ...req, accepted: [] })])
+        .then(([o, ohne]) => {
+          if (!alive) return
+          setPlan(o.plan); setBilanz(o.bilanz_nachher); setBilanzOhne(ohne); setPlanEvents(ohne.events || [])
+        })
+        .catch((e) => setFehler(String(e)))
+        .finally(() => alive && setRechnet(false))
+    }, 250)
+    return () => { alive = false; clearTimeout(t) }
+  }, [req, fahrer])
 
-  // ---------- KI-Vorschlag ----------
-  const runOptimizer = async () => {
-    setBusy(true)
-    try {
-      const r = await api.optimize(bilanzReq)
-      setSuggestions(r.vorschlaege)
-      setOptInfo({ methode: r.methode, bedarf: r.bedarf, nachher: r.bilanz_nachher })
-    } catch (e) { setFehler(String(e)) } finally { setBusy(false) }
+  const selectAction = (a) => {
+    setSelectedAction(a?.id ?? null)
+    const line = a && network?.bus_lines.find((l) => l.name === a.linie)
+    if (line) setFocus({ points: line.path })
   }
-  const accept = (s) => { setAccepted((a) => [...a, s.id]); setSuggestions((xs) => xs?.filter((x) => x.id !== s.id)) }
-  const reject = (s) => { setRejected((a) => [...a, s.id]); setSuggestions((xs) => xs?.filter((x) => x.id !== s.id)) }
-  const acceptAll = () => { setAccepted((a) => [...a, ...(suggestions || []).map((s) => s.id)]); setSuggestions([]) }
-  const undoAccept = (id) => setAccepted((a) => a.filter((x) => x !== id))
-  const resetPlan = () => { setAccepted([]); setRejected([]); setSuggestions(null); setOptInfo(null) }
+  const togglePin = (a) => setPinned((xs) => (xs.includes(a.id) ? xs.filter((x) => x !== a.id) : [...xs, a.id]))
+  const exclude = (a) => { setExcluded((xs) => [...xs, a.id]); setPinned((xs) => xs.filter((x) => x !== a.id)) }
+  const resetExcluded = () => setExcluded([])
 
   // ---------- Events ----------
   const openEvent = async (e) => {
@@ -153,69 +153,48 @@ export default function App() {
   const toggleEventAus = (id) => setEventsAus((xs) => (xs.includes(id) ? xs.filter((x) => x !== id) : [...xs, id]))
   useEffect(() => { if (eventPlan && eventPlan.event.datum !== datum) setEventPlan(null) }, [datum, eventPlan])
 
-  // ---------- Presets & Szenarien ----------
+  // ---------- Vorlagen & Szenarien ----------
   const applyPreset = (p) => {
     if (!meta) return
     const b = meta.baseline
-    if (p === 'normal') { setFahrer(b.fahrer_verfuegbar); setBusse(b.busse_verfuegbar); setDatum(START_DATUM) }
-    if (p === 'krank') { setFahrer(Math.round(b.fahrer_bestand * 0.85)); setBusse(b.busse_verfuegbar) }
+    if (p === 'normal') { setFahrer(b.fahrer_spitze_verfuegbar); setBusse(b.busse_verfuegbar); setDatum(START_DATUM) }
+    if (p === 'krank') { setFahrer(Math.round(b.fahrer_spitze_bestand * 0.85)); setBusse(b.busse_verfuegbar) }
     if (p === 'messe') { const e = events.find((x) => x.id === 'e3'); if (e) openEvent(e) }
     if (p === 'samstag') { const e = events.find((x) => x.id === 'e1'); if (e) openEvent(e) }
   }
-  const snapshot = () => ({ datum, fahrer, busse, accepted, rejected, eventsAus,
-    express: express.map(({ result, hubs, ...l }) => ({ ...l, hubs })) })
+  const snapshot = () => ({ datum, fahrer, busse, pinned, excluded, eventsAus,
+    express: express.map(({ result, ...l }) => l) })
   const saveScenario = async (name) => { await api.saveScenario(name, snapshot()) }
   const loadScenario = async (sc) => {
     const s = sc.state
-    setDatum(s.datum); setFahrer(s.fahrer); setBusse(s.busse); setAccepted(s.accepted); setRejected(s.rejected)
-    setEventsAus(s.eventsAus || [])
+    setDatum(s.datum); setFahrer(s.fahrer); setBusse(s.busse)
+    setPinned(s.pinned || s.accepted || []); setExcluded(s.excluded || s.rejected || []); setEventsAus(s.eventsAus || [])
     const lines = await Promise.all(s.express.map((l) => recompute(l, s.datum)))
     nextId = Math.max(1, ...lines.map((l) => l.id + 1))
     setExpress(lines)
   }
-
-  // KPIs für die untere Leiste
-  const kpi = useMemo(() => {
-    const ws = express.filter((l) => l.result).map((l) => l.result.wirkung)
-    const prof = ws.reduce((a, w) => a + w.einwohner_profitieren, 0)
-    const gewinn = prof ? ws.reduce((a, w) => a + w.zeitgewinn_mittel_min * w.einwohner_profitieren, 0) / prof : 0
-    return {
-      profitieren: prof, gewinn,
-      weit: ws.reduce((a, w) => a + w.einwohner_weit_von_schiene, 0),
-      fehlend: bilanz ? Math.max(0, -bilanz.fahrer.saldo) : null,
-      eventsTag: bilanz?.events?.length ?? 0,
-      fahrtenWeniger: bilanz?.fahrten_weniger ?? 0,
-      mehrwarte: bilanz?.mehrwartezeit_h ?? 0,
-    }
-  }, [express, bilanz])
-
-  const acceptedActions = useMemo(() => {
-    const m = Object.fromEntries(allActions.map((a) => [a.id, a]))
-    return accepted.map((id) => m[id]).filter(Boolean)
-  }, [accepted, allActions])
 
   if (fehler && !meta) return <div className="loading">Backend nicht erreichbar.<br /><small>{fehler}</small><br /><small>Läuft <code>uvicorn app.main:app --port 8000</code> im Ordner backend/?</small></div>
   if (!meta || !grid || !network) return <div className="loading"><div className="spinner" />Lade Daten …</div>
 
   return (
     <div className="app">
-      <TopBar datum={datum} setDatum={setDatum} applyPreset={applyPreset} saveScenario={saveScenario}
-        loadScenario={loadScenario} listScenarios={api.scenarios} meta={meta} />
+      <TopBar applyPreset={applyPreset} saveScenario={saveScenario} loadScenario={loadScenario} listScenarios={api.scenarios} meta={meta} />
       <LeftPanel meta={meta} fahrer={fahrer} setFahrer={setFahrer} busse={busse} setBusse={setBusse}
-        layers={layers} setLayers={setLayers} heatMode={heatMode} setHeatMode={setHeatMode}
-        mode={mode} setMode={setMode} runOptimizer={runOptimizer} busy={busy} method={method} setMethod={setMethod}
-        hotspots={hotspots} addExpressAt={addExpressAt} />
+        layers={layers} setLayers={setLayers} heatMode={heatMode} setHeatMode={setHeatMode} mode={mode} setMode={setMode} />
       <MapView grid={grid} network={network} heatMode={heatMode} layers={layers} express={express}
-        activeId={activeId} hotspots={hotspots} baustellen={baustellen} events={events} datum={datum}
-        eventPlan={eventPlan} focus={focus} onMapClick={onMapClick} mode={mode} highlightLine={highlightLine}
-        acceptedActions={acceptedActions} onEventClick={openEvent} onHotspotClick={(h) => addExpressAt(h.lon, h.lat)} />
+        activeId={activeId} hotspots={hotspots} baustellen={baustellen} events={events} datum={datum} setDatum={setDatum}
+        eventPlan={eventPlan} focus={focus} onMapClick={onMapClick} mode={mode} plan={plan}
+        selectedAction={selectedAction} hoverLine={hoverLine} onSelectAction={selectAction}
+        onEventClick={openEvent} onHotspotClick={(h) => addExpressAt(h.lon, h.lat)}
+        calOpen={calOpen} setCalOpen={setCalOpen} eventsAus={eventsAus} />
       <RightPanel express={express} activeId={activeId} setActiveId={setActiveId} updateLine={updateLine}
-        removeLine={removeLine} setMode={setMode} mode={mode} suggestions={suggestions} optInfo={optInfo}
-        accept={accept} reject={reject} acceptAll={acceptAll} acceptedActions={acceptedActions} undoAccept={undoAccept}
-        resetPlan={resetPlan} bilanz={bilanz} setHighlightLine={setHighlightLine} baustellen={baustellen}
+        removeLine={removeLine} setMode={setMode} mode={mode} baustellen={baustellen}
+        plan={plan} allActions={allActions} pinned={pinned} excluded={excluded} rechnet={rechnet}
+        selectedAction={selectedAction} selectAction={selectAction} togglePin={togglePin} exclude={exclude}
+        resetExcluded={resetExcluded} setHoverLine={setHoverLine}
+        bilanz={bilanz} bilanzOhne={bilanzOhne} planEvents={planEvents}
         eventPlan={eventPlan} eventsAus={eventsAus} toggleEventAus={toggleEventAus} closeEvent={() => setEventPlan(null)} />
-      <BottomBar datum={datum} setDatum={setDatum} events={events} openEvent={openEvent} eventsAus={eventsAus}
-        kpi={kpi} meta={meta} bilanz={bilanz} />
       {fehler && <div className="toast" onClick={() => setFehler(null)}>{fehler}</div>}
     </div>
   )

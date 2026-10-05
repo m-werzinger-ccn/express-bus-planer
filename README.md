@@ -44,19 +44,19 @@ Tests: `cd backend && python -m pytest -q`
 |---|---|---|---|
 | F1 | Heatmap Einwohner × Schienennetz | ✅ | Zensus-2022-100-m-Raster (echt), 3 Modi: Einwohner / Fußweg zur U-/S-Bahn / Unterversorgungs-Score; U-Bahn, S-Bahn, Tram, Regionalbahn aus VGN-GTFS; Tooltip je Zelle |
 | F2 | Express-Ziele = Knotenpunkte | ✅ | Knoten-Score je Schienenstation (Abfahrten/h, Linien, U+S-Verknüpfung); Top-3-Vorschlag je Startpunkt, im Panel umschaltbar |
-| F3 | Start frei wählbar | ✅ | Klick in die Karte oder auf einen Hotspot → Route auf echtem OSM-Straßennetz, automatische Zwischenhalte, eigene Zwischenhalte per Klick, Takt 10/15/20/30, Betrieb HVZ oder 6–20 Uhr; Wirkung: Einwohner im Einzugsbereich, Zeitgewinn bis zum Knoten |
-| F4 | Fahrer & Busse als Optionen | ✅ | Schieberegler; synthetischer Datensatz (Seed) aus echtem Fahrplan: Auslastung je Fahrt, Umläufe, Fahrer- und Busbestand; Vorlagen „Krankheitswelle“, „Messe-Mittwoch“, „Heimspiel-Samstag“ |
-| F5 | Fahrten anpassen / KI-Vorschlag | ✅ | 125 Kandidaten-Maßnahmen (Takt ×1,5 oder ×2 je Linie und Zeitfenster), nur wenn der Mindesttakt (NVP 2025, vereinfacht) eingehalten wird und die Restfahrten nicht überfüllt sind; MILP (PuLP/CBC) oder Greedy minimiert die Mehrwartezeit; ✓/✕ je Vorschlag mit „Warum?“; Fahrer- und Bus-Bilanz live |
-| F6 | Event-Express + Kalender | ✅ | Wochenkalender, 6 fiktive Events an echten Orten; Shuttle-Bedarf aus Besucherzahl, Routen von großen Knoten, An-/Abreisefenster; fließt in die Bilanz ein |
+| F3 | Start frei wählbar | ✅ | „Start auf Karte wählen“ und in die Karte klicken (oder auf ein unterversorgtes Gebiet) → Route auf echtem OSM-Straßennetz, automatische Zwischenhalte, eigene Zwischenhalte per Klick, Takt 10/15/20/30, Betrieb HVZ oder 6–20 Uhr; Wirkung: Einwohner im Einzugsbereich, Zeitgewinn bis zum Knoten |
+| F4 | Fahrer & Busse als Optionen | ✅ | Schieberegler für **einsatzbereite Busse** und **Fahrer:innen im Dienst zur Spitze** (beide in derselben Einheit: 1 Fahrer:in je Bus im Einsatz; Standard: 269 Busse, aber nur 255 Fahrer:innen → 14 Busse stehen im Depot); synthetischer Datensatz (Seed) aus echtem Fahrplan: Auslastung je Fahrt, Umläufe, Fahrer- und Busbestand; Vorlagen „Krankheitswelle“, „Messe-Mittwoch“, „Heimspiel-Samstag“ |
+| F5 | Fahrten anpassen / KI-Vorschlag | ✅ | 61 Kandidaten-Maßnahmen in der Hauptverkehrszeit (Takt ×1,5 oder ×2 je Linie), die Busse und damit Fahrer:innen in der Spitze freisetzen, nur wenn der Mindesttakt (NVP 2025, vereinfacht) eingehalten wird und die Restfahrten nicht überfüllt sind; der KI-Plan rechnet bei jeder Änderung automatisch neu (MILP, PuLP/CBC) und bringt die Fahrer-Bilanz auf ± 0 bei minimaler Mehrwartezeit; Maßnahmen anklickbar (Karte zoomt, Linie wird hervorgehoben, Begründung klappt auf), fixieren oder ausschließen, eigene Maßnahmen hinzufügen |
+| F6 | Event-Express + Kalender | ✅ | Kalender-Button unten links öffnet ein Monatsfenster, 6 fiktive Events an echten Orten; Shuttle-Bedarf aus Besucherzahl, Routen von großen Knoten, An-/Abreisefenster; fließt in die Bilanz ein |
 | F7 | Baustellen | ✅ | 8 fiktive Baustellen auf echten Straßen mit Zeitraum; Datum wechseln → Sperrungen werden umfahren, Verzögerungen verlängern die Fahrzeit, Hinweis im Panel |
 | – | Szenarien | 🟡 | Speichern/Laden (JSON im Backend); Vergleichsansicht folgt |
 
 ### Demo-Ablauf (≈ 3 min Pitch)
-1. **Heatmap „Score“**: die gelb/orangen Flächen sind dicht bewohnt und weit weg von der Schiene. KPI unten: Einwohner > 800 m zur U-/S-Bahn.
-2. **Hotspot 4** links anklicken → Express X1 zur U-Bahn Langwasser Mitte, Reisezeit ab Start z. B. 43 → 25 min. Die Route umfährt automatisch eine Baustelle.
-3. **Fahrer-Bilanz** ist rot (heute schon knapp + Express-Bedarf) → **„KI-Vorschlag berechnen“** → schienenparallele, schwach ausgelastete Fahrten werden ausgedünnt, Bilanz **± 0**.
-4. Einen Vorschlag mit ✕ ablehnen, neu rechnen → Alternative.
-5. **Kalender: Mi Messe** → Event-Express mit Shuttle-Bussen, Bilanz kippt → erneut optimieren.
+1. **Heatmap „Score“**: die hellgrünen bis gelben Flächen sind dicht bewohnt und weit weg von der Schiene.
+2. **Start auf Karte wählen** und ins unterversorgte **Gebiet 4** im Süden klicken → Express X1 zur U-Bahn Langwasser Mitte, Reisezeit ab Start z. B. 43 → 25 min. Die Route umfährt automatisch eine Baustelle.
+3. **KI-Plan** rechnet sofort: ohne Maßnahmen fehlen 6 Fahrer:innen, mit Plan **± 0**. Maßnahme anklicken → Linie wird in der Karte hervorgehoben.
+4. Eine Maßnahme ausschließen → der Plan findet sofort eine Alternative, wieder ± 0.
+5. **Kalender** (unten links) → **Mi 14.10. Messe** → Event-Express mit Shuttle-Bussen, der Plan gleicht automatisch aus.
 6. **Sa Heimspiel** → am Wochenende ist mehr Reserve da, Shuttles sind ohne Ausdünnung möglich.
 
 ---
@@ -115,7 +115,7 @@ Interaktive Doku: http://localhost:8000/docs
 - „Schienennetz“ für Distanz und Hotspots = U-/S-/Regionalbahn; die Tram zählt (noch) nicht als Schiene
 - Maßnahmen basieren auf dem Werktagsfahrplan; Wochenende über Faktoren in `rules.yaml`
 - Mindesttakt nach Nahverkehrsplan 2025 vereinfacht (dicht 15 min / locker 30 min, abends 30/60)
-- 1 Fahrerschicht = 7 h Lenkzeit; Event-Shuttle = 1 Fahrer:in je Bus
+- Engpass = Spitzenstunde: Bilanz zählt Fahrer:innen gleichzeitig im Dienst (1 je Bus im Einsatz). Personal pro Tag ≈ 1,38 × Spitzenbedarf (Früh-/Spätschicht), wird im Regler mit angezeigt. Dienststunden je Tag sind Zusatzinfo; Event-Shuttle = 1 Fahrer:in je Bus
 
 ### Pipeline neu rechnen
 ```bash

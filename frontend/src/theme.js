@@ -1,9 +1,8 @@
-// Farbsystem aus docs/moodboard.svg
+// Farbsystem angelehnt an das moderne Corporate Design der VAG Nürnberg (Rot #B80012, Grautöne, Arial)
 export const C = {
-  bg: '#0F172A', panel: '#131D30', card: '#1E293B', line: '#334155',
-  text: '#E2E8F0', muted: '#94A3B8', dim: '#64748B',
-  amber: '#F59E0B', rail: '#3B82F6', sbahn: '#22C55E', tram: '#F87171', regio: '#94A3B8',
-  bau: '#FB923C', event: '#A855F7', good: '#4ADE80', bad: '#F87171',
+  red: '#B80012', redDark: '#8F000E', text: '#1F1F1F', muted: '#6B6B6B', line: '#E3E3E3',
+  rail: '#1D6FB8', sbahn: '#2E9D46', tram: '#E8737A', regio: '#9A9A9A',
+  bus: '#3A3A3A', bau: '#F59F00', event: '#9C36B5', plan: '#E64980', good: '#2B8A3E', bad: '#B80012',
 }
 
 export const hex = (h, a = 255) => {
@@ -11,9 +10,8 @@ export const hex = (h, a = 255) => {
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255, a]
 }
 
-// Farbrampen für die Heatmap
-const RAMP_HEAT = ['#1E293B', '#7F1D1D', '#DC2626', '#F97316', '#FDE047'].map((h) => hex(h))
-const RAMP_POP = ['#0B3B5C', '#0E7490', '#14B8A6', '#A3E635', '#FDE047'].map((h) => hex(h))
+// Eine Farbrampe für alle Heatmap-Modi (dunkelblau → türkis → grün → gelb)
+const RAMP = ['#0B3B5C', '#0E7490', '#14B8A6', '#A3E635', '#FDE047'].map((h) => hex(h))
 
 function ramp(stops, t) {
   t = Math.max(0, Math.min(1, t))
@@ -23,25 +21,27 @@ function ramp(stops, t) {
   return stops[i].slice(0, 3).map((v, k) => Math.round(v + (stops[i + 1][k] - v) * f))
 }
 
-export const heatColor = (t, a) => [...ramp(RAMP_HEAT, t), a]
-export const popColor = (t, a) => [...ramp(RAMP_POP, t), a]
-export const RAMPS = {
-  heat: 'linear-gradient(90deg,#1E293B,#7F1D1D,#DC2626,#F97316,#FDE047)',
-  pop: 'linear-gradient(90deg,#0B3B5C,#0E7490,#14B8A6,#A3E635,#FDE047)',
-}
+export const heatColor = (t, a) => [...ramp(RAMP, t), a]
+export const RAMP_CSS = 'linear-gradient(90deg,#0B3B5C,#0E7490,#14B8A6,#A3E635,#FDE047)'
 
-export const EXPRESS_COLORS = ['#F59E0B', '#38BDF8', '#F472B6', '#A3E635', '#FB7185', '#C084FC']
+// Express-Linien: kräftig, unterscheidbar von U-Bahn-, Bus- und Plan-Farben
+export const EXPRESS_COLORS = ['#D9480F', '#0B7285', '#5F3DC4', '#2B8A3E', '#C2255C', '#1971C2']
 
 export const fmt = (n, d = 0) =>
   n == null ? '–' : Number(n).toLocaleString('de-DE', { minimumFractionDigits: d, maximumFractionDigits: d })
 
 export const WOCHENTAG = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+export const MONATE = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
+export const MONATE_KURZ = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez']
+
+const d12 = (iso) => new Date(iso + 'T12:00:00')
 export const datumLabel = (iso) => {
-  const d = new Date(iso + 'T12:00:00')
-  return `${WOCHENTAG[d.getDay()]} ${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.`
+  const d = d12(iso)
+  return `${WOCHENTAG[d.getDay()]}, ${d.getDate()}. ${MONATE_KURZ[d.getMonth()]} ${d.getFullYear()}`
 }
 export const addDays = (iso, n) => {
-  const d = new Date(iso + 'T12:00:00')
+  const d = d12(iso)
   d.setDate(d.getDate() + n)
-  return d.toISOString().slice(0, 10)
+  return toIso(d)
 }
+export const toIso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`

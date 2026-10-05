@@ -125,7 +125,7 @@ def plan_express(start, hub_id, waypoints=None, takt=15, betriebszeit="HVZ", dat
     umlauf = 2 * fahrzeit + 2 * WENDE
     busse = math.ceil(umlauf / takt)
     stunden = sum(b - a for a, b in RULES["express"]["betriebszeiten"][betriebszeit])
-    fahrer = round(busse * stunden / SCHICHT, 1)
+    fahrer = busse  # gleichzeitig im Dienst: 1 Fahrer:in je Bus
 
     return {
         "hub": {k: hub[k] for k in ("id", "name", "lon", "lat", "modes", "lines")},

@@ -43,8 +43,9 @@ class ExpressReq(BaseModel):
 
 
 class Need(BaseModel):
-    fahrer: float = 0
+    fahrer: float = 0          # gleichzeitig im Dienst (Spitze)
     busse: float = 0
+    fahrerstunden: float = 0   # Dienststunden je Tag (Info)
 
 
 class BilanzReq(BaseModel):
@@ -88,7 +89,11 @@ def grid():
 def network():
     s = store()
     rail = [st for st in s.stations if st["is_rail"]]
-    return {"rail_lines": s.rail_lines, "bus_lines": s.bus_lines, "rail_stations": rail}
+    bus_ids = {sid for l in s.bus_lines for sid in l["stations"]}
+    bus_stops = [{"id": st["id"], "name": st["name"], "lon": st["lon"], "lat": st["lat"],
+                  "lines": [x for x in st["lines"] if not x.startswith(("U", "S", "R"))][:12], "bus_deps_h": st["bus_deps_h"]}
+                 for st in s.stations if st["id"] in bus_ids]
+    return {"rail_lines": s.rail_lines, "bus_lines": s.bus_lines, "rail_stations": rail, "bus_stops": bus_stops}
 
 
 @app.get("/api/hubs")

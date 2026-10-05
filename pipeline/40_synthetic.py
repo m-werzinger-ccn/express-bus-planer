@@ -182,6 +182,12 @@ def main(seed: int, ausfall: float, reserve: float):
         "fahrten": int(len(trips)), "linien": int(trips.linie.nunique()),
         "fahrstunden": round(fahrstunden, 1), "fahrer_bedarf": fahrer_bedarf,
         "fahrer_bestand": n_fahrer, "fahrer_verfuegbar": int((~fahrer.krank).sum()),
+        # Vergleichbar mit Bussen: Fahrer:innen gleichzeitig im Dienst zur Spitze (1 je Bus im Einsatz).
+        # Personal je Tag ist größer (Früh-/Spätschicht), daher Umrechnung über Personal je Spitzenbus.
+        "personal_je_spitzenbus": round(fahrer_bedarf / busse_spitze, 2),
+        "fahrer_spitze_bedarf": busse_spitze,
+        "fahrer_spitze_bestand": int(round(n_fahrer * busse_spitze / fahrer_bedarf)),
+        "fahrer_spitze_verfuegbar": int(round((~fahrer.krank).sum() * busse_spitze / fahrer_bedarf)),
         "busse_spitze": busse_spitze, "busse_bestand": n_busse, "busse_verfuegbar": int(busse.verfuegbar.sum()),
         "fahrgaeste_tag": int(trips.fahrgaeste.sum()),
         "hinweis": "synthetisch – keine VAG-Daten",
